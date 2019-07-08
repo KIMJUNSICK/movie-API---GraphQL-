@@ -8,5 +8,14 @@
   "license": "MIT",
   "dependencies": {
     "graphql-yoga": "^1.18.0"
+  },
+  "scripts": {
+    "start": "nodemon --exec babel-node index.js"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.5.0",
+    "@babel/core": "^7.5.0",
+    "@babel/node": "^7.5.0",
+    "@babel/preset-env": "^7.5.2"
   }
 }
