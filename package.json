@@ -1,0 +1,12 @@
+{
+  "name": "movieAPI-GraphQL",
+  "version": "1.0.0",
+  "description": "make movie API with GraphQL",
+  "repository": "https://github.com/KIMJUNSICK/movie-API-GraphQL",
+  "author": "junSikKim <jinaganda5@gmail.com>",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "graphql-yoga": "^1.18.0"
+  }
+}
