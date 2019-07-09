@@ -1,3 +1,10 @@
+type Junsik {
+  name: String!
+  age: Int!
+  city: String!
+  sex: String!
+}
+
 type Query {
-    name:String!
+  person: Junsik!
 }
