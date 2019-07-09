@@ -1,9 +1,12 @@
-import { people, getById } from "./db";
+import { getMovies, getById, addMovie } from "./db";
 
 const resolvers = {
   Query: {
-    people: () => people,
-    person: (__, { id }) => getById(id)
+    movies: () => getMovies(),
+    movie: (__, { id }) => getById(id)
+  },
+  Mutation: {
+    addMovie: (__, { name, score }) => addMovie(name, score)
   }
 };
 
