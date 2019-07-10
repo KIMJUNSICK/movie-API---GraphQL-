@@ -1,54 +1,16 @@
-let movies = [
-  {
-    id: 0,
-    name: "Full Metal Jacket",
-    score: 9
-  },
-  {
-    id: 1,
-    name: "Christmas of August",
-    score: 10
-  },
-  {
-    id: 2,
-    name: "歩いても　歩いても",
-    score: 10
-  },
-  {
-    id: 3,
-    name: "Old Boy",
-    score: 10
-  },
-  {
-    id: 4,
-    name: "Wonderful Life",
-    score: 8
+import fetch from "node-fetch";
+
+const API_URL = "https://yts.lt/api/v2/list_movies.json?";
+
+export const getMovies = (sort, limit) => {
+  let REQEUSTED_URL = API_URL;
+  if (sort === "rating") {
+    REQEUSTED_URL += `&sort_by=${sort}`;
   }
-];
-
-export const getMovies = () => movies;
-
-export const getById = id => {
-  const filteredMovies = movies.filter(movie => movie.id === id);
-  return filteredMovies[0];
-};
-
-export const deleteMovie = id => {
-  const strainedMovies = movies.filter(movie => movie.id !== id);
-  if (movies.length > strainedMovies.length) {
-    movies = strainedMovies;
-    return true;
-  } else {
-    return false;
+  if (limit > 0) {
+    REQEUSTED_URL += `&limit=${limit}`;
   }
-};
-
-export const addMovie = (name, score) => {
-  const newMovie = {
-    id: movies.length,
-    name: name,
-    score: score
-  };
-  movies.push(newMovie);
-  return newMovie;
+  return fetch(REQEUSTED_URL)
+    .then(res => res.json())
+    .then(json => json.data.movies);
 };
