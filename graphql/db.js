@@ -5,7 +5,7 @@ const LIST_MOVIES_URL = `${BASE_URL}/list_movies.json`;
 const MOVIE_DETAIL_URL = `${BASE_URL}/movie_details.json`;
 const MOVIE_SUGGESTIONS_URL = `${BASE_URL}/movie_suggestions.json`;
 
-export const getMovies = async (limit, rating) => {
+export const getMovies = async (limit, rating, sort) => {
   const {
     data: {
       data: { movies }
@@ -13,7 +13,8 @@ export const getMovies = async (limit, rating) => {
   } = await axios(LIST_MOVIES_URL, {
     params: {
       limit,
-      minimum_rating: rating
+      minimum_rating: rating,
+      sort_by: sort
     }
   });
   return movies;
